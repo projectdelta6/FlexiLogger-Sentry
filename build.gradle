@@ -12,3 +12,8 @@ plugins {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+wrapper {
+    gradleVersion = "7.3.3"
+    distributionType = Wrapper.DistributionType.ALL
+}
