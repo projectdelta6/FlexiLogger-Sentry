@@ -11,8 +11,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 32
-        versionCode 17
-        versionName "1.17"
+        versionCode 18
+        versionName "1.18"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -31,7 +31,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.8.0'
 
     // original FlexiLogger lib
-    implementation 'com.github.projectdelta6:FlexiLogger:master-SNAPSHOT'
+    implementation 'com.github.projectdelta6:FlexiLogger:1.18'
     //Sentry
     implementation 'io.sentry:sentry-android:5.7.0'
 }

@@ -97,6 +97,85 @@ abstract class FlexiLogSentry: FlexiLog() {
 		}
 	}
 
+	val breadcrumb = BreadcrumbBuilder()
+
+	inner class BreadcrumbBuilder {
+		/**
+		 * Creates a breadcrumb using [Breadcrumb.http]
+		 */
+		fun http(url: String, method: String, code: Int? = null) {
+			breadcrumb(Breadcrumb.http(url, method, code))
+		}
+
+		/**
+		 * Creates a breadcrumb using [Breadcrumb.navigation]
+		 */
+		fun navigation(from: String, to: String) {
+			breadcrumb(Breadcrumb.navigation(from, to))
+		}
+
+		/**
+		 * Creates a breadcrumb using [Breadcrumb.transaction]
+		 */
+		fun transaction(message: String) {
+			breadcrumb(Breadcrumb.transaction(message))
+		}
+
+		/**
+		 * Creates a breadcrumb using [Breadcrumb.debug]
+		 */
+		fun debug(message: String) {
+			breadcrumb(Breadcrumb.debug(message))
+		}
+
+		/**
+		 * Creates a breadcrumb using [Breadcrumb.error]
+		 */
+		fun error(message: String) {
+			breadcrumb(Breadcrumb.error(message))
+		}
+
+		/**
+		 * Creates a breadcrumb using [Breadcrumb.info]
+		 */
+		fun info(message: String) {
+			breadcrumb(Breadcrumb.info(message))
+		}
+
+		/**
+		 * Creates a breadcrumb using [Breadcrumb.query]
+		 */
+		fun query(message: String) {
+			breadcrumb(Breadcrumb.query(message))
+		}
+
+		/**
+		 * Creates a breadcrumb using [Breadcrumb.ui]
+		 */
+		fun ui(category: String, message: String) {
+			breadcrumb(Breadcrumb.ui(category, message))
+		}
+
+		/**
+		 * Creates a breadcrumb using [Breadcrumb.user]
+		 */
+		fun user(category: String, message: String) {
+			breadcrumb(Breadcrumb.user(category, message))
+		}
+
+		/**
+		 * Creates a breadcrumb using [Breadcrumb.userInteraction]
+		 */
+		fun userInteraction(
+			subCategory: String,
+			viewId: String? = null,
+			viewClass: String? = null,
+			additionalData: Map<String,Any> = emptyMap()
+		) {
+			breadcrumb(Breadcrumb.userInteraction(subCategory, viewId, viewClass, additionalData))
+		}
+	}
+
 	/**
 	 * Create a breadcrumb from a Sentry [Breadcrumb] object.
 	 */
